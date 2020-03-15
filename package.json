@@ -3,21 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^5.6.2",
+    "@hot-loader/react-dom": "^16.11.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "reason-react": "^0.7.0"
+  },
+  "devDependencies": {
+    "craco-plugin-react-hot-reload": "^0.1.0",
+    "react-hot-loader": "^4.12.18",
+    "bs-platform": "^7.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "npm run build:re && craco start",
+    "build": "npm run clean:re && npm run build:re && craco build",
+    "build:re": "bsb -make-world",
+    "clean:re": "bsb -clean-world",
+    "test": "npm run build:re && craco test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [
