@@ -1,4 +1,4 @@
-# Create Reason React App
+# Create React Reason App
 
 ## Usage
 
